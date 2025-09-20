@@ -12,7 +12,7 @@ chrome.action.onClicked.addListener((tab) => {
 
     // ----------------------
     // ONLINE RENDER BACKEND:
-    fetch("https://your-render-backend-url.onrender.com/summarize", {
+    fetch("https://coretake-backend.onrender.com", {
     // ----------------------
 
       method: "POST",
@@ -28,3 +28,4 @@ chrome.action.onClicked.addListener((tab) => {
     .catch(err => console.error("Error:", err));
   });
 });
+
