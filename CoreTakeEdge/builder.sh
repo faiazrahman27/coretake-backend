@@ -1,10 +1,39 @@
 #!/bin/bash
 
-# Move to backend folder
-cd backend || { echo "Backend folder not found!"; exit 1; }
+# ===========================================
+# CoreTake Backend Builder Script for Render
+# ===========================================
 
-# Install Python dependencies
-pip install -r requirements.txt
+echo "🚀 Starting build script..."
 
-# Start the backend server
-python app.py
+# Step 1: Move to backend folder
+if [ -d "backend" ]; then
+    cd backend
+    echo "✅ Moved to backend folder"
+else
+    echo "❌ Error: backend folder not found!"
+    exit 1
+fi
+
+# Step 2: Install Python dependencies
+if [ -f "requirements.txt" ]; then
+    echo "📦 Installing dependencies from requirements.txt..."
+    pip install --upgrade pip
+    pip install -r requirements.txt
+    if [ $? -ne 0 ]; then
+        echo "❌ Error installing dependencies"
+        exit 1
+    fi
+else
+    echo "❌ Error: requirements.txt not found!"
+    exit 1
+fi
+
+# Step 3: Start the backend
+if [ -f "app.py" ]; then
+    echo "🚀 Starting backend server..."
+    python app.py
+else
+    echo "❌ Error: app.py not found!"
+    exit 1
+fi
