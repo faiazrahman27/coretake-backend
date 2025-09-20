@@ -1,6 +1,6 @@
 chrome.action.onClicked.addListener((tab) => {
   if (!tab || !tab.id || tab.url.startsWith("chrome://") || tab.url.startsWith("edge://")) {
-    alert("CoreTake cannot summarize this page.");
+    console.error("CoreTake cannot summarize this page (internal browser page).");
     return;
   }
 
@@ -8,8 +8,7 @@ chrome.action.onClicked.addListener((tab) => {
     { target: { tabId: tab.id }, func: () => document.body.innerText },
     (results) => {
       if (!results || !results[0] || !results[0].result) {
-        console.error("No page content available.");
-        alert("CoreTake cannot read this page.");
+        console.error("CoreTake cannot read this page content.");
         return;
       }
 
@@ -47,7 +46,6 @@ chrome.action.onClicked.addListener((tab) => {
         })
         .catch(err => {
           console.error("Error fetching summary:", err);
-          alert("Failed to get summary from backend.");
         });
     }
   );
