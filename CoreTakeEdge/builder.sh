@@ -1,23 +1,19 @@
 #!/bin/bash
 
-# ===========================================
-# CoreTake Backend Builder Script for Render
-# ===========================================
-
 echo "🚀 Starting build script..."
 
-# Step 1: Move to backend folder
-if [ -d "backend" ]; then
-    cd backend
-    echo "✅ Moved to backend folder"
+# Step 1: Move to CoreTakeEdge/backend folder
+if [ -d "CoreTakeEdge/backend" ]; then
+    cd CoreTakeEdge/backend
+    echo "✅ Moved to CoreTakeEdge/backend folder"
 else
-    echo "❌ Error: backend folder not found!"
+    echo "❌ Error: CoreTakeEdge/backend folder not found!"
     exit 1
 fi
 
 # Step 2: Install Python dependencies
 if [ -f "requirements.txt" ]; then
-    echo "📦 Installing dependencies from requirements.txt..."
+    echo "📦 Installing dependencies..."
     pip install --upgrade pip
     pip install -r requirements.txt
     if [ $? -ne 0 ]; then
