@@ -1,0 +1,3 @@
+Flask
+sumy
+flask-cors

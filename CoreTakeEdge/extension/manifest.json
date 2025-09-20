@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "CoreTake - Free Summarizer",
+  "version": "1.0",
+  "description": "Summarize any webpage with a free Python backend.",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Summarize Page"
+  }
+}
