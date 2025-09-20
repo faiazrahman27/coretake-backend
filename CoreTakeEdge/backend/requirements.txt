@@ -1,3 +1,5 @@
 Flask
-sumy
 flask-cors
+sumy
+nltk
+lxml
